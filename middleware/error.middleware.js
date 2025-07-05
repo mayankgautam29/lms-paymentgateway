@@ -15,5 +15,5 @@ export class ApiError extends Error {
 }
 
 export const JwtError = () => {
-    new AppError("Invalid token,Please login again",401);
+    new ApiError("Invalid token,Please login again",401);
 }
