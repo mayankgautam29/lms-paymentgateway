@@ -39,7 +39,7 @@ export const getUserCourseProgress = catchAsync(async (req, res) => {
     data: {
       courseDetails,
       progress: courseProgress.lectureProgress,
-      isCompleted: courseProgress.completed,
+      isCompleted: courseProgress.isCompleted,
       completionPercentage,
     },
   });
