@@ -60,7 +60,8 @@ courseProgressSchema.pre('save', function(next){
     if(this.lectureProgress.length > 0){
         const completedLectures = this.lectureProgress.filter(lp => lp.isCompleted).length;
         Math.round((completedLectures / this.lectureProgress.length)*100);
-        this.isCompleted = this.completionPercentage === 100
+        this.isCompleted = this.completionPercentage === 100;
+        this.completionPercentage = Math.round((completedLectures / this.lectureProgress.length) * 100);
     }
     next()
 })

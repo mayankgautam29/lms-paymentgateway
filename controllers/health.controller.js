@@ -20,8 +20,7 @@ export const checkHealth = async (req,res) => {
                     memoryUsage: process.memoryUsage()
                 }
             }
-        }
-    
+        }        
         const httpStatus = healthStatus.services.database.status === 'healthy' ? 200 : 503
         res.status(httpStatus).json(healthStatus)
     } catch (error) {

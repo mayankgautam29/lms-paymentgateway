@@ -107,6 +107,8 @@ export const forgotPassword = catchAsync(async (req, res) => {
     throw new ApiError("User not found", 404);
   }
   const resetToken = user.getResetPasswordToken();
+  user.resetPasswordToken = resetToken;
+  user.resetPasswordExpire = Date.now();
   await user.save({ validateBeforeSave: false });
   res.status(200).json({
     success: true,
